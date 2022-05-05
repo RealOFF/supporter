@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "assets": [
-      "**/*.graphql"
-    ]
+    "assets": ["**/*.graphql"]
   }
 }
