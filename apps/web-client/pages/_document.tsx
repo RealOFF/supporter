@@ -1,7 +1,10 @@
 /* eslint-disable react/display-name */
+import { ColorModeScript } from '@chakra-ui/react'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import { ReactElement } from 'react'
 import { ServerStyleSheet } from 'styled-components'
+
+import { theme } from './theme'
 
 export default class CustomDocument extends Document<{
   styleTags: ReactElement[]
@@ -22,6 +25,7 @@ export default class CustomDocument extends Document<{
     return (
       <Html>
         <Head>{this.props.styleTags}</Head>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <body>
           <Main />
           <NextScript />
