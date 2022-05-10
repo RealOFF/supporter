@@ -1,0 +1,32 @@
+type Channel {
+  name: String!
+  description: String!
+  image: String!
+  authorId: String!
+}
+
+input CreateChannelInput {
+  name: String!
+  description: String!
+  image: String!
+  authorId: String!
+}
+
+input UpdateChannelInput {
+  id: Int!
+  name: String!
+  description: String!
+  image: String!
+  authorId: String!
+}
+
+type ChannelQuery {
+  users: [Channel]
+  user(id: Int!): Channel
+}
+
+type ChannelMutation {
+  createChannel(createChannelInput: CreateChannelInput!): Channel!
+  updateChannel(updateChannelInput: UpdateChannelInput!): Channel
+  removeChannel(id: Int!): Channel
+}
