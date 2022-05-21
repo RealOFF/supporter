@@ -4,7 +4,7 @@ import Document, { Head, Html, Main, NextScript } from 'next/document'
 import { ReactElement } from 'react'
 import { ServerStyleSheet } from 'styled-components'
 
-import { theme } from './theme'
+import { theme } from '../utils/theme'
 
 export default class CustomDocument extends Document<{
   styleTags: ReactElement[]
