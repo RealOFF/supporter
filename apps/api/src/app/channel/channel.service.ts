@@ -42,7 +42,7 @@ export class ChannelService {
     })
   }
 
-  async remove(where: Prisma.UserWhereUniqueInput): Promise<Channel> {
+  async remove(where: Prisma.ChannelWhereUniqueInput): Promise<Channel> {
     return this.prisma.channel.delete({
       where
     })
