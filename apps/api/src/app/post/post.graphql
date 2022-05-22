@@ -18,12 +18,12 @@ input UpdatePostInput {
   content: String!
 }
 
-type PostQuery {
+type Query {
   posts: [Post]
   post(id: Int!): Post
 }
 
-type PostMutation {
+type Mutation {
   createPost(createPostInput: CreatePostInput!): Post!
   updatePost(updatePostInput: UpdatePostInput!): Post
   removePost(id: Int!): Post

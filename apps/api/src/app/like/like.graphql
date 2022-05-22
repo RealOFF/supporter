@@ -8,12 +8,12 @@ input CreateLikeInput {
   userId: Int!
 }
 
-type LikeQuery {
+type Query {
   likes: [Like]
   like(id: Int!): Like
 }
 
-type LikeMutation {
+type Mutation {
   createLike(createLikeInput: CreateLikeInput!): Like!
   removeLike(id: Int!): Like
 }

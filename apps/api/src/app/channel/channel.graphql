@@ -19,12 +19,12 @@ input UpdateChannelInput {
   image: String!
 }
 
-type ChannelQuery {
+type Query {
   channels: [Channel]
   channel(id: Int!): Channel
 }
 
-type ChannelMutation {
+type Mutation {
   createChannel(createChannelInput: CreateChannelInput!): Channel!
   updateChannel(updateChannelInput: UpdateChannelInput!): Channel
   removeChannel(id: Int!): Channel

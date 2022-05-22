@@ -11,12 +11,12 @@ input UpdateUserInput {
   name: String!
 }
 
-type UserQuery {
+type Query {
   users: [User]
   user(id: Int!): User
 }
 
-type UserMutation {
+type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   updateUser(updateUserInput: UpdateUserInput!): User
   removeUser(id: Int!): User

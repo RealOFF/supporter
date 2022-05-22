@@ -16,12 +16,12 @@ input UpdateCommentInput {
   text: String!
 }
 
-type CommentQuery {
+type Query {
   comments: [Comment]
   comment(id: Int!): Comment
 }
 
-type CommentMutation {
+type Mutation {
   createComment(createCommentInput: CreateCommentInput!): Comment!
   updateComment(updateCommentInput: UpdateCommentInput!): Comment
   removeComment(id: Int!): Comment
