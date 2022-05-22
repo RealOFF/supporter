@@ -25,7 +25,7 @@ export class CommentService {
     return this.prisma.comment.findMany(params)
   }
 
-  async create(data: Prisma.CommentCreateInput): Promise<Comment> {
+  async create(data: Prisma.CommentUncheckedCreateInput): Promise<Comment> {
     return this.prisma.comment.create({
       data
     })

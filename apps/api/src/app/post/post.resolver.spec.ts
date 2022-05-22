@@ -5,7 +5,7 @@ import { PostResolver } from './post.resolver'
 import { PostService } from './post.service'
 
 describe('PostResolver', () => {
-  let resolver: PostService
+  let resolver: PostResolver
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

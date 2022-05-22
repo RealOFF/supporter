@@ -9,7 +9,7 @@ input CreateChannelInput {
   name: String!
   description: String!
   image: String!
-  authorId: String!
+  authorId: Int!
 }
 
 input UpdateChannelInput {
@@ -17,7 +17,6 @@ input UpdateChannelInput {
   name: String!
   description: String!
   image: String!
-  authorId: String!
 }
 
 type ChannelQuery {
