@@ -20,9 +20,9 @@ describe('ChannelService', () => {
     expect(service).toBeDefined()
   })
 
-  it('should get a single user using the id', async () => {
+  it('should get a single channel using the id', async () => {
     const expectedResult = { id: 1, name: 'name' }
-    prismaService.user.findUnique = jest
+    prismaService.channel.findUnique = jest
       .fn()
       .mockReturnValueOnce(expectedResult)
     const arg = { id: 1 }
@@ -30,29 +30,31 @@ describe('ChannelService', () => {
     const result = await service.findOne(arg)
 
     expect(result).toEqual(expectedResult)
-    expect(prismaService.user.findUnique).toBeCalledWith({ where: arg })
+    expect(prismaService.channel.findUnique).toBeCalledWith({ where: arg })
   })
 
-  it('should get all users', async () => {
+  it('should get all channels', async () => {
     const expectedResult = [
       { id: 1, name: 'name1' },
       { id: 2, name: 'name2' },
       { id: 3, name: 'name3' }
     ]
-    prismaService.user.findMany = jest.fn().mockReturnValueOnce(expectedResult)
+    prismaService.channel.findMany = jest
+      .fn()
+      .mockReturnValueOnce(expectedResult)
 
     const result = await service.findAll()
 
     expect(result).toEqual(expectedResult)
-    expect(prismaService.user.findMany).toBeCalledWith(undefined)
+    expect(prismaService.channel.findMany).toBeCalledWith(undefined)
   })
 
-  it('should skip one user', async () => {
-    prismaService.user.findMany = jest.fn()
+  it('should skip one channel', async () => {
+    prismaService.channel.findMany = jest.fn()
     const arg = { skip: 1 }
 
     await service.findAll(arg)
 
-    expect(prismaService.user.findMany).toBeCalledWith(arg)
+    expect(prismaService.channel.findMany).toBeCalledWith(arg)
   })
 })
