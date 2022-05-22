@@ -20,9 +20,9 @@ describe('PostService', () => {
     expect(service).toBeDefined()
   })
 
-  it('should get a single user using the id', async () => {
+  it('should get a single post using the id', async () => {
     const expectedResult = { id: 1, name: 'name' }
-    prismaService.user.findUnique = jest
+    prismaService.post.findUnique = jest
       .fn()
       .mockReturnValueOnce(expectedResult)
     const arg = { id: 1 }
@@ -30,29 +30,29 @@ describe('PostService', () => {
     const result = await service.findOne(arg)
 
     expect(result).toEqual(expectedResult)
-    expect(prismaService.user.findUnique).toBeCalledWith({ where: arg })
+    expect(prismaService.post.findUnique).toBeCalledWith({ where: arg })
   })
 
-  it('should get all users', async () => {
+  it('should get all posts', async () => {
     const expectedResult = [
       { id: 1, name: 'name1' },
       { id: 2, name: 'name2' },
       { id: 3, name: 'name3' }
     ]
-    prismaService.user.findMany = jest.fn().mockReturnValueOnce(expectedResult)
+    prismaService.post.findMany = jest.fn().mockReturnValueOnce(expectedResult)
 
     const result = await service.findAll()
 
     expect(result).toEqual(expectedResult)
-    expect(prismaService.user.findMany).toBeCalledWith(undefined)
+    expect(prismaService.post.findMany).toBeCalledWith(undefined)
   })
 
-  it('should skip one user', async () => {
-    prismaService.user.findMany = jest.fn()
+  it('should skip one post', async () => {
+    prismaService.post.findMany = jest.fn()
     const arg = { skip: 1 }
 
     await service.findAll(arg)
 
-    expect(prismaService.user.findMany).toBeCalledWith(arg)
+    expect(prismaService.post.findMany).toBeCalledWith(arg)
   })
 })
