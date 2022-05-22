@@ -4,7 +4,7 @@ import { PrismaService } from '../prisma/prisma.service'
 import { ChannelResolver } from './channel.resolver'
 import { ChannelService } from './channel.service'
 
-describe('UsersResolver', () => {
+describe('ChannelResolver', () => {
   let resolver: ChannelResolver
 
   beforeEach(async () => {
