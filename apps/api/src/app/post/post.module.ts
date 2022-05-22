@@ -8,4 +8,4 @@ import { PostService } from './post.service'
   providers: [PostResolver, PostService],
   imports: [PrismaModule]
 })
-export class UsersModule {}
+export class PostModule {}

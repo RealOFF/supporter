@@ -8,4 +8,4 @@ import { LikeService } from './like.service'
   providers: [LikeResolver, LikeService],
   imports: [PrismaModule]
 })
-export class CommentModule {}
+export class LikeModule {}
