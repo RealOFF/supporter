@@ -1,0 +1,19 @@
+type Like {
+  postId: Int!
+  userId: Int!
+}
+
+input CreateLikeInput {
+  postId: Int!
+  userId: Int!
+}
+
+type LikeQuery {
+  likes: [Like]
+  like(id: Int!): Like
+}
+
+type LikeMutation {
+  createLike(createLikeInput: CreateLikeInput!): Like!
+  removeLike(id: Int!): Like
+}

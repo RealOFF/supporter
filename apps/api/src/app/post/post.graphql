@@ -1,0 +1,30 @@
+type Post {
+  title: String!
+  content: String!
+  author: User!
+  authorId: Int!
+  comments: [Comment]
+}
+
+input CreatePostInput {
+  title: String!
+  content: String!
+  authorId: Int!
+}
+
+input UpdatePostInput {
+  id: Int!
+  title: String!
+  content: String!
+}
+
+type PostQuery {
+  posts: [Post]
+  post(id: Int!): Post
+}
+
+type PostMutation {
+  createPost(createPostInput: CreatePostInput!): Post!
+  updatePost(updatePostInput: UpdatePostInput!): Post
+  removePost(id: Int!): Post
+}
