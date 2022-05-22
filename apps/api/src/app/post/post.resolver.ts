@@ -8,8 +8,8 @@ export class PostResolver {
   constructor(private readonly postService: PostService) {}
 
   @Mutation('createPost')
-  create(@Args('createUserInput') createUserInput: CreatePostInput) {
-    return this.postService.create(createUserInput)
+  create(@Args('createUserInput') createPostInput: CreatePostInput) {
+    return this.postService.create(createPostInput)
   }
 
   @Query('posts')

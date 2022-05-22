@@ -25,9 +25,16 @@ export class ChannelService {
     return this.prisma.channel.findMany(params)
   }
 
-  async create(data: Prisma.ChannelCreateInput): Promise<Channel> {
+  async create(data: Prisma.ChannelUncheckedCreateInput): Promise<Channel> {
     return this.prisma.channel.create({
-      data
+      data: {
+        name: data.name,
+        description: data.description,
+        image: data.image,
+        author: {
+          connect: { id: data.authorId }
+        }
+      }
     })
   }
 

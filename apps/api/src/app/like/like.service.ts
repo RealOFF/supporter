@@ -31,17 +31,6 @@ export class LikeService {
     })
   }
 
-  async update(params: {
-    where: Prisma.LikeWhereUniqueInput
-    data: Prisma.LikeUpdateInput
-  }): Promise<Like> {
-    const { where, data } = params
-    return this.prisma.like.update({
-      data,
-      where
-    })
-  }
-
   async remove(where: Prisma.LikeWhereUniqueInput): Promise<Like> {
     return this.prisma.like.delete({
       where

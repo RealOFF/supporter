@@ -1,6 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
 
-import { CreateLikeInput, UpdateLikeInput } from '../../graphql.schema'
+import { CreateLikeInput } from '../../graphql.schema'
 import { LikeService } from './like.service'
 
 @Resolver('Like')
@@ -20,14 +20,6 @@ export class LikeResolver {
   @Query('like')
   findOne(@Args('id') id: number) {
     return this.likeService.findOne({ id })
-  }
-
-  @Mutation('updateLike')
-  update(@Args('updateLikeInput') updateLikeInput: UpdateLikeInput) {
-    return this.likeService.update({
-      where: { id: updateLikeInput.id },
-      data: updateLikeInput
-    })
   }
 
   @Mutation('removeLike')

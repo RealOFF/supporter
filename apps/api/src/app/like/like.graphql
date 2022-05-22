@@ -8,12 +8,6 @@ input CreateLikeInput {
   userId: Int!
 }
 
-input UpdateLikeInput {
-  id: Int!
-  postId: Int!
-  userId: Int!
-}
-
 type LikeQuery {
   likes: [Like]
   like(id: Int!): Like
@@ -21,6 +15,5 @@ type LikeQuery {
 
 type LikeMutation {
   createLike(createLikeInput: CreateLikeInput!): Like!
-  updateLike(updateLikeInput: UpdateLikeInput!): Like
   removeLike(id: Int!): Like
 }

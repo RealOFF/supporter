@@ -14,8 +14,6 @@ input CreateCommentInput {
 input UpdateCommentInput {
   id: Int!
   text: String!
-  postId: Int!
-  userId: Int!
 }
 
 type CommentQuery {

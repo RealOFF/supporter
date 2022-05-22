@@ -25,9 +25,15 @@ export class PostService {
     return this.prisma.post.findMany(params)
   }
 
-  async create(data: Prisma.PostCreateInput): Promise<Post> {
+  async create(data: Prisma.PostUncheckedCreateInput): Promise<Post> {
     return this.prisma.post.create({
-      data
+      data: {
+        title: data.title,
+        content: data.content,
+        author: {
+          connect: { id: data.authorId }
+        }
+      }
     })
   }
 

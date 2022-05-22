@@ -11,19 +11,21 @@ datasource db {
 }
 
 model User {
-  id       Int       @id @default(autoincrement())
-  name     String
-  posts    Post[]
-  channels Channel[]
+  id        Int       @id @default(autoincrement())
+  name      String
+  posts     Post[]
+  channels  Channel[]
+  createdAt DateTime  @default(now())
 }
 
 model Channel {
-  id          Int    @id @default(autoincrement())
-  name        String @unique
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
   description String
   image       String
-  author      User   @relation(fields: [authorId], references: [id])
+  author      User     @relation(fields: [authorId], references: [id])
   authorId    Int
+  createdAt   DateTime @default(now())
 }
 
 model Post {
@@ -34,18 +36,21 @@ model Post {
   author    User      @relation(fields: [authorId], references: [id])
   authorId  Int
   comments  Comment[]
+  createdAt DateTime  @default(now())
 }
 
 model Comment {
-  id     Int    @id @default(autoincrement())
-  text   String
-  postId Int
-  post   Post   @relation(fields: [postId], references: [id])
-  userId Int
+  id        Int      @id @default(autoincrement())
+  text      String
+  postId    Int
+  post      Post     @relation(fields: [postId], references: [id])
+  userId    Int
+  createdAt DateTime @default(now())
 }
 
 model Like {
-  id     Int @id @default(autoincrement())
-  postId Int
-  userId Int
+  id        Int      @id @default(autoincrement())
+  postId    Int
+  userId    Int
+  createdAt DateTime @default(now())
 }

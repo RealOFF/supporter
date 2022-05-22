@@ -7,12 +7,15 @@ type Post {
 }
 
 input CreatePostInput {
-  name: String!
+  title: String!
+  content: String!
+  authorId: Int!
 }
 
 input UpdatePostInput {
   id: Int!
-  name: String!
+  title: String!
+  content: String!
 }
 
 type PostQuery {
