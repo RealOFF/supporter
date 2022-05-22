@@ -21,8 +21,8 @@ input UpdateChannelInput {
 }
 
 type ChannelQuery {
-  users: [Channel]
-  user(id: Int!): Channel
+  channels: [Channel]
+  channel(id: Int!): Channel
 }
 
 type ChannelMutation {
